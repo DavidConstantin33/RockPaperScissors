@@ -4,13 +4,28 @@ const rockBtn = document.querySelector('.rbtn');
 const paperBtn = document.querySelector('.pbtn');
 const scissorBtn = document.querySelector('.sbtn');
 const result = document.querySelector('.result');
+const score = document.querySelector('.score');
+let playerScore = 0;
+let computerScore = 0;
+
 const rock = '1.png';
 const paper = '2.png';
 const scissors = '3.png';
 
+
 const computerTurn = function() {
     const randomNum = Math.floor(Math.random() * 3) + 1;
     computer.src = `${randomNum}.png`;
+}
+
+displayScore = function() {
+    if (result.textContent ==='You win!') {
+        playerScore++;
+    } else if (result.textContent ==='You lose!') {
+        computerScore++;
+    }
+    score.textContent = `You: ${playerScore} \n
+                          Computer: ${computerScore}`
 }
 
 const displayResult = function(playerChoice) {
@@ -27,9 +42,8 @@ const displayResult = function(playerChoice) {
     } else {
         result.textContent = 'You lose!';
     }
+    displayScore();
 };
-
-
 
 rockBtn.addEventListener('click', function () {
     computer.src = 'loading.png'
@@ -66,3 +80,4 @@ scissorBtn.addEventListener('click', function () {
         displayResult(choice);
     },400);
 });
+
