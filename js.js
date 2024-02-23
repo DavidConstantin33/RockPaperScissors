@@ -15,8 +15,7 @@ const computerTurn = function() {
 
 const displayResult = function(playerChoice) {
     const playerSrc = player.src.split('/').pop(); // Get the file name
-    const computerSrc = computer.src.split('/').pop(); // Get the file name
-
+    const computerSrc = computer.src.split('/').pop();
     if (playerSrc === computerSrc) {
         result.textContent = "It's a tie!";
     } else if (
@@ -33,6 +32,7 @@ const displayResult = function(playerChoice) {
 
 
 rockBtn.addEventListener('click', function () {
+    computer.src = 'loading.png'
     result.textContent = '';
     player.src ='1.png';
     const choice = rock;
@@ -40,10 +40,11 @@ rockBtn.addEventListener('click', function () {
     setTimeout(() => {
         computerTurn();
         displayResult(choice);
-        },300);
+        },400);
 });
 
 paperBtn.addEventListener('click', function () {
+    computer.src = 'loading.png'
     result.textContent = '';
     player.src ='2.png';
     const choice = paper;
@@ -51,10 +52,11 @@ paperBtn.addEventListener('click', function () {
     setTimeout(() => {
         computerTurn();
         displayResult(choice);
-    },300);
+    },400);
 });
 
 scissorBtn.addEventListener('click', function () {
+    computer.src = 'loading.png'
     result.textContent = '';
     player.src ='3.png';
     const choice = scissors;
@@ -62,7 +64,5 @@ scissorBtn.addEventListener('click', function () {
     setTimeout(() => {
         computerTurn();
         displayResult(choice);
-    },300);
+    },400);
 });
-
-
